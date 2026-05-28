@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zero Carbon Agency — Energy Programs, Home Improvement, Solar & Property Solutions in Canada</title>
+<meta name="description" content="Zero Carbon Agency helps Canadian homeowners access energy programs, upgrade their homes, explore solar savings, and request fast, no-obligation property solutions in Ontario, Alberta and British Columbia." />
+<meta name="theme-color" content="#16432A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zero Carbon Agency",
+  "description": "Canadian energy program, home improvement, solar and property-solutions agency serving Ontario, Alberta and British Columbia.",
+  "areaServed": ["Ontario", "Alberta", "British Columbia", "Canada"],
+  "knowsAbout": ["Energy efficiency programs", "Home improvement", "Solar panels", "Cash offer for homes", "Real estate developer partnerships"]
+}
+</script>
+<style>
+  /* ============================ DESIGN TOKENS ============================ */
+  :root{
+    --paper:#FAF8F2;        /* warm canvas */
+    --paper-2:#F2EFE5;      /* card / alt section */
+    --mist:#E9EDE1;         /* sage-tinted panel */
+    --ink:#15211A;          /* charcoal-green near black */
+    --ink-soft:#3A463E;
+    --muted:#6E7A6F;
+    --forest:#16432A;       /* deep brand green */
+    --green:#2C6E45;        /* primary green */
+    --green-bright:#3C8A57;
+    --sage:#8C9A66;         /* olive accent */
+    --sage-soft:#B7C193;
+    --blue:#3F627F;         /* muted slate-blue accent */
+    --line:rgba(21,33,26,.12);
+    --line-2:rgba(21,33,26,.07);
+    --white:#FFFFFF;
+    --shadow-sm:0 1px 2px rgba(21,33,26,.04), 0 2px 8px rgba(21,33,26,.05);
+    --shadow-md:0 4px 14px rgba(21,33,26,.07), 0 14px 40px rgba(21,33,26,.07);
+    --shadow-lg:0 10px 30px rgba(21,33,26,.10), 0 30px 70px rgba(21,33,26,.12);
+    --r-sm:12px; --r:18px; --r-lg:26px; --r-xl:34px;
+    --maxw:1180px;
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Hanken Grotesk", -apple-system, sans-serif;
+    --font-mono:"JetBrains Mono", monospace;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);background:var(--paper);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16.5px;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  ::selection{background:var(--sage-soft);color:var(--forest)}
+
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.04;letter-spacing:-.018em}
+  h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:600}
+  h2{font-size:clamp(1.9rem,3.6vw,3rem)}
+  h3{font-size:clamp(1.25rem,2vw,1.6rem)}
+  p{color:var(--ink-soft)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:500;display:inline-flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--sage)}
+  .lead{font-size:clamp(1.05rem,1.5vw,1.22rem);color:var(--ink-soft);line-height:1.55}
+  .serif-accent{font-style:italic;font-family:var(--font-display);font-weight:500}
+
+  /* ============================ BUTTONS ============================ */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.98rem;
+    padding:15px 26px;border-radius:100px;transition:.35s var(--ease);position:relative;letter-spacing:-.01em}
+  .btn svg{width:17px;height:17px;transition:transform .35s var(--ease)}
+  .btn:hover svg{transform:translateX(4px)}
+  .btn-primary{background:var(--forest);color:#fff;box-shadow:0 8px 22px rgba(22,67,42,.28)}
+  .btn-primary:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 14px 30px rgba(22,67,42,.32)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--forest);background:rgba(22,67,42,.04);transform:translateY(-2px)}
+  .btn-light{background:#fff;color:var(--forest);box-shadow:var(--shadow-sm)}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .btn-sm{padding:11px 18px;font-size:.88rem}
+  .btn-block{width:100%;justify-content:center}
+
+  /* ============================ HEADER ============================ */
+  header#nav{position:sticky;top:0;z-index:90;background:rgba(250,248,242,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;transition:.3s var(--ease)}
+  header#nav.scrolled{border-bottom-color:var(--line);box-shadow:0 4px 24px rgba(21,33,26,.05)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+  .brand-mark{width:38px;height:38px;flex-shrink:0}
+  .brand-text{display:flex;flex-direction:column;line-height:1}
+  .brand-text b{font-family:var(--font-display);font-size:1.04rem;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  .brand-text span{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.28em;color:var(--green);text-transform:uppercase;margin-top:2px}
+  nav.links{display:flex;align-items:center;gap:4px}
+  nav.links a{font-size:.93rem;font-weight:500;color:var(--ink-soft);padding:9px 13px;border-radius:9px;transition:.2s;position:relative}
+  nav.links a:hover{color:var(--forest);background:rgba(22,67,42,.05)}
+  nav.links a.active{color:var(--forest)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .nav-phone{font-family:var(--font-mono);font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .burger{display:none;flex-direction:column;gap:5px;padding:8px}
+  .burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .mobile-menu{display:none;flex-direction:column;padding:12px 24px 26px;background:var(--paper);border-bottom:1px solid var(--line);gap:2px}
+  .mobile-menu a{padding:13px 6px;font-weight:500;border-bottom:1px solid var(--line-2);color:var(--ink-soft)}
+  .mobile-menu .btn{margin-top:14px;justify-content:center}
+
+  /* ============================ SECTIONS ============================ */
+  section{padding:clamp(56px,8vw,110px) 0}
+  .sec-head{max-width:680px;margin-bottom:48px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head .eyebrow{margin-bottom:18px}
+  .sec-head h2{margin-bottom:18px}
+  .sec-head p{font-size:1.08rem}
+  .bg-mist{background:var(--mist)}
+  .bg-ink{background:var(--ink);color:var(--paper)}
+  .bg-ink p{color:rgba(250,248,242,.72)}
+  .bg-ink h2,.bg-ink h3{color:var(--paper)}
+  .bg-paper2{background:var(--paper-2)}
+
+  /* ============================ FADE-IN ============================ */
+  .reveal{opacity:0;transform:translateY(26px);transition:.8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ============================ PROVINCE LANDING ============================ */
+  .landing{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .landing-bg{position:absolute;inset:0;z-index:0}
+  .landing-bg .mesh{position:absolute;inset:0;
+    background:
+      radial-gradient(60% 55% at 78% 8%, rgba(140,154,102,.40), transparent 60%),
+      radial-gradient(50% 45% at 12% 92%, rgba(63,98,127,.20), transparent 60%),
+      radial-gradient(70% 60% at 100% 100%, rgba(22,67,42,.16), transparent 55%),
+      var(--paper);}
+  .grain{position:absolute;inset:0;opacity:.45;mix-blend-mode:multiply;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");}
+  .landing-top{position:relative;z-index:3;padding:28px 0}
+  .landing-top .wrap{display:flex;justify-content:space-between;align-items:center}
+  .landing-pill{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--forest);
+    background:rgba(255,255,255,.6);border:1px solid var(--line);padding:8px 15px;border-radius:100px;display:flex;align-items:center;gap:8px}
+  .landing-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(60,138,87,.18)}
+  .landing-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0 70px}
+  .landing-hero{max-width:840px;margin:0 auto;text-align:center}
+  .landing-hero h1{margin-bottom:24px}
+  .landing-hero h1 .hl{color:var(--forest);font-style:italic}
+  .landing-hero .lead{max-width:620px;margin:0 auto 14px;font-size:clamp(1.05rem,1.6vw,1.25rem)}
+  .landing-cue{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:30px;display:flex;align-items:center;justify-content:center;gap:10px}
+  .landing-cue svg{width:15px;animation:bob 1.8s var(--ease) infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  .prov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .prov-card{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:30px 22px 26px;text-align:left;transition:.4s var(--ease);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:230px}
+  .prov-card::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 40%,rgba(22,67,42,.05));opacity:0;transition:.4s}
+  .prov-card:hover{transform:translateY(-6px);border-color:var(--forest);box-shadow:var(--shadow-lg);background:#fff}
+  .prov-card:hover::after{opacity:1}
+  .prov-out{width:60px;height:60px;margin-bottom:auto}
+  .prov-out svg{width:100%;height:100%}
+  .prov-out svg path{fill:var(--sage-soft);stroke:var(--forest);stroke-width:2.5;transition:.4s}
+  .prov-card:hover .prov-out svg path{fill:var(--sage)}
+  .prov-name{font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin-top:20px;color:var(--ink)}
+  .prov-tag{font-size:.86rem;color:var(--muted);margin-top:4px}
+  .prov-go{margin-top:16px;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px;font-weight:500}
+  .prov-go svg{width:14px;transition:transform .3s}
+  .prov-card:hover .prov-go svg{transform:translateX(4px)}
+
+  .landing-foot{position:relative;z-index:2;text-align:center;padding-bottom:36px}
+  .landing-foot button{font-size:.95rem;color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:4px;transition:.2s}
+  .landing-foot button:hover{color:var(--forest)}
+
+  /* trust strip */
+  .trust-strip{position:relative;z-index:2;border-top:1px solid var(--line);background:rgba(255,255,255,.45)}
+  .trust-strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;padding:22px 24px}
+  .trust-item{display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:500;color:var(--ink-soft)}
+  .trust-item svg{width:18px;height:18px;color:var(--green)}
+
+  /* ============================ MODAL ============================ */
+  .modal-scrim{position:fixed;inset:0;z-index:200;background:rgba(21,33,26,.5);backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.35s}
+  .modal-scrim.show{opacity:1;pointer-events:auto}
+  .modal{background:var(--paper);border-radius:var(--r-xl);max-width:680px;width:100%;padding:42px;position:relative;
+    box-shadow:var(--shadow-lg);transform:scale(.94) translateY(10px);transition:.4s var(--ease);max-height:92vh;overflow:auto}
+  .modal-scrim.show .modal{transform:none}
+  .modal-x{position:absolute;top:20px;right:20px;width:38px;height:38px;border-radius:50%;background:var(--paper-2);
+    display:flex;align-items:center;justify-content:center;transition:.2s}
+  .modal-x:hover{background:var(--mist);transform:rotate(90deg)}
+  .modal-x svg{width:16px;color:var(--ink)}
+  .modal-head{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+  .modal-chip{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);background:var(--mist);padding:6px 12px;border-radius:100px}
+  .modal h3{font-size:1.7rem;margin:14px 0 6px}
+  .modal-opts{display:grid;gap:12px;margin-top:26px}
+  .opt-card{display:flex;align-items:center;gap:18px;padding:18px 20px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r);text-align:left;transition:.3s var(--ease)}
+  .opt-card:hover{border-color:var(--forest);transform:translateX(5px);box-shadow:var(--shadow-sm)}
+  .opt-ico{width:48px;height:48px;border-radius:13px;background:var(--mist);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s}
+  .opt-card:hover .opt-ico{background:var(--forest)}
+  .opt-ico svg{width:23px;height:23px;color:var(--forest);transition:.3s}
+  .opt-card:hover .opt-ico svg{color:#fff}
+  .opt-txt b{display:block;font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--ink)}
+  .opt-txt span{font-size:.86rem;color:var(--muted)}
+  .opt-arr{margin-left:auto;color:var(--sage)}
+  .opt-arr svg{width:18px}
+
+  /* ============================ HERO (interior) ============================ */
+  .hero{position:relative;overflow:hidden;padding:clamp(60px,9vw,120px) 0 clamp(56px,7vw,90px)}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:
+    radial-gradient(55% 50% at 88% 0%, rgba(140,154,102,.30), transparent 60%),
+    radial-gradient(45% 50% at 0% 100%, rgba(63,98,127,.14), transparent 60%);}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .hero h1{margin:20px 0 22px}
+  .hero .lead{margin-bottom:32px;max-width:540px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:34px;margin-top:42px;flex-wrap:wrap}
+  .hstat b{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--forest);display:block;line-height:1}
+  .hstat span{font-size:.82rem;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+  .hero-visual{position:relative}
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow-lg)}
+  .hero-card .hc-top{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .hero-card .hc-ico{width:46px;height:46px;border-radius:13px;background:var(--mist);display:flex;align-items:center;justify-content:center}
+  .hero-card .hc-ico svg{width:22px;color:var(--forest)}
+  .hero-card h4{font-family:var(--font-display);font-size:1.1rem}
+  .hero-card .hc-row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line-2);font-size:.9rem}
+  .hero-card .hc-row span{color:var(--muted)}
+  .hero-card .hc-row b{font-family:var(--font-mono);font-weight:500;color:var(--forest)}
+  .hero-card .hc-bar{height:8px;border-radius:100px;background:var(--mist);margin-top:18px;overflow:hidden}
+  .hero-card .hc-bar i{display:block;height:100%;width:74%;background:linear-gradient(90deg,var(--green),var(--sage));border-radius:100px}
+  .float-badge{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 15px;
+    box-shadow:var(--shadow-md);display:flex;align-items:center;gap:9px;font-size:.82rem;font-weight:600}
+  .float-badge svg{width:18px;color:var(--green)}
+  .fb-1{top:-18px;left:-22px}
+  .fb-2{bottom:-18px;right:-14px}
+
+  /* ============================ CARDS / GRIDS ============================ */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.35s var(--ease);position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(22,67,42,.3)}
+  .card-ico{width:52px;height:52px;border-radius:14px;background:var(--mist);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:.35s}
+  .card:hover .card-ico{background:var(--forest)}
+  .card-ico svg{width:25px;color:var(--forest);transition:.35s}
+  .card:hover .card-ico svg{color:#fff}
+  .card h3{font-size:1.22rem;margin-bottom:10px}
+  .card p{font-size:.93rem}
+  .card .pill-who{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--blue);background:rgba(63,98,127,.09);padding:5px 11px;border-radius:100px;margin:14px 0 4px}
+  .card .benefit{display:flex;gap:9px;align-items:flex-start;margin-top:12px;font-size:.9rem;color:var(--ink-soft)}
+  .card .benefit svg{width:17px;color:var(--green);flex-shrink:0;margin-top:3px}
+  .card .card-cta{margin-top:20px;font-weight:600;font-size:.9rem;color:var(--forest);display:flex;align-items:center;gap:7px}
+  .card .card-cta svg{width:15px;transition:transform .3s}
+  .card:hover .card-cta svg{transform:translateX(4px)}
+
+  /* compact service tiles */
+  .svc-tile{background:var(--paper-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:20px 18px;transition:.3s var(--ease);display:flex;flex-direction:column;gap:12px}
+  .svc-tile:hover{background:#fff;border-color:var(--forest);transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+  .svc-tile .st-ico{width:42px;height:42px;border-radius:11px;background:var(--mist);display:flex;align-items:center;justify-content:center}
+  .svc-tile .st-ico svg{width:20px;color:var(--forest)}
+  .svc-tile b{font-size:.98rem;font-weight:600}
+
+  /* ============================ STEPS ============================ */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+  .step{padding:0 14px;position:relative}
+  .step .num{width:48px;height:48px;border-radius:50%;background:var(--forest);color:#fff;font-family:var(--font-mono);
+    font-size:1.05rem;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:18px;position:relative;z-index:2}
+  .step::after{content:"";position:absolute;top:24px;left:50%;width:100%;height:1.5px;background:var(--line);z-index:1}
+  .step:last-child::after{display:none}
+  .step h4{font-size:1.02rem;margin-bottom:7px}
+  .step p{font-size:.88rem}
+
+  /* ============================ CALCULATOR ============================ */
+  .calc{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+  .calc-head{background:var(--ink);color:var(--paper);padding:30px 34px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .calc-head h3{color:var(--paper);font-size:1.5rem}
+  .calc-head p{color:rgba(250,248,242,.62);font-size:.9rem;margin-top:4px}
+  .calc-head .calc-badge{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);border:1px solid rgba(140,154,102,.4);padding:8px 14px;border-radius:100px}
+  .calc-body{display:grid;grid-template-columns:.92fr 1.08fr}
+  .calc-inputs{padding:32px 34px;border-right:1px solid var(--line);background:var(--paper)}
+  .calc-inputs .ci-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:.78rem;font-weight:600;color:var(--ink-soft);font-family:var(--font-mono);letter-spacing:.02em}
+  .field input,.field select,.field textarea{font-family:var(--font-body);font-size:.94rem;padding:12px 14px;border:1.5px solid var(--line);
+    border-radius:11px;background:#fff;color:var(--ink);transition:.2s;width:100%}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(44,110,69,.1)}
+  .field .hint{font-size:.72rem;color:var(--muted)}
+  .toggle-row{display:flex;gap:10px}
+  .toggle-row button{flex:1;padding:11px;border:1.5px solid var(--line);border-radius:11px;font-weight:600;font-size:.88rem;color:var(--ink-soft);transition:.2s;background:#fff}
+  .toggle-row button.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+
+  .calc-results{padding:32px 34px;background:var(--paper-2)}
+  .res-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  .res-col{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px}
+  .res-col.battery{border-color:var(--forest);position:relative}
+  .res-col.battery::before{content:"Recommended";position:absolute;top:-11px;left:20px;font-family:var(--font-mono);font-size:.62rem;
+    letter-spacing:.12em;text-transform:uppercase;background:var(--forest);color:#fff;padding:4px 11px;border-radius:100px}
+  .res-col h4{font-size:1.05rem;margin-bottom:4px}
+  .res-col .rc-sub{font-size:.78rem;color:var(--muted);font-family:var(--font-mono);margin-bottom:16px}
+  .res-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line-2);gap:10px}
+  .res-row:last-child{border-bottom:none}
+  .res-row .rl{font-size:.82rem;color:var(--ink-soft)}
+  .res-row .rv{font-family:var(--font-mono);font-weight:600;font-size:.92rem;color:var(--forest);text-align:right;white-space:nowrap}
+  .res-hero{background:linear-gradient(135deg,var(--forest),var(--green));color:#fff;border-radius:var(--r);padding:20px 22px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .res-hero .rh-big{font-family:var(--font-display);font-size:2.1rem;font-weight:600;line-height:1}
+  .res-hero .rh-lbl{font-size:.78rem;opacity:.8;font-family:var(--font-mono);letter-spacing:.04em}
+  .calc-disclaimer{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5;padding:14px 16px;background:var(--mist);border-radius:12px}
+  .calc-foot{padding:24px 34px;background:var(--ink);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .calc-foot p{color:rgba(250,248,242,.7);font-size:.88rem;max-width:380px}
+
+  /* ============================ FORMS ============================ */
+  .formwrap{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:38px;box-shadow:var(--shadow-md)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  .form-grid .full{grid-column:1/-1}
+  .progress{height:6px;background:var(--mist);border-radius:100px;overflow:hidden;margin-bottom:8px}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--sage));border-radius:100px;transition:.5s var(--ease)}
+  .progress-lbl{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:26px;display:flex;justify-content:space-between}
+  .form-step{display:none}
+  .form-step.active{display:block;animation:fadeUp .5s var(--ease)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .form-step h4{font-family:var(--font-display);font-size:1.4rem;margin-bottom:6px}
+  .form-step .fs-sub{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+  .checkbox-row{display:flex;gap:12px;align-items:flex-start;padding:16px;background:var(--paper-2);border-radius:13px;border:1px solid var(--line-2)}
+  .checkbox-row input{width:20px;height:20px;margin-top:2px;accent-color:var(--forest);flex-shrink:0}
+  .checkbox-row label{font-size:.84rem;color:var(--ink-soft);line-height:1.5}
+  .form-nav{display:flex;justify-content:space-between;margin-top:28px;gap:12px}
+  .form-success{text-align:center;padding:30px 10px;display:none}
+  .form-success.show{display:block;animation:fadeUp .5s var(--ease)}
+  .form-success .fs-ico{width:72px;height:72px;border-radius:50%;background:var(--mist);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+  .form-success .fs-ico svg{width:34px;color:var(--green)}
+  .form-success h3{margin-bottom:10px}
+  .upload-zone{border:2px dashed var(--line);border-radius:13px;padding:24px;text-align:center;color:var(--muted);font-size:.88rem;cursor:pointer;transition:.2s}
+  .upload-zone:hover{border-color:var(--green);background:var(--paper-2)}
+
+  /* ============================ BENEFITS / CHECK LIST ============================ */
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px}
+  .checklist .ck{display:flex;gap:12px;align-items:flex-start}
+  .checklist .ck svg{width:20px;color:var(--green);flex-shrink:0;margin-top:3px}
+  .checklist .ck b{display:block;font-size:.96rem;color:var(--ink)}
+
+  /* ============================ FAQ ============================ */
+  .faq-item{border-bottom:1px solid var(--line);padding:4px 0}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;text-align:left;
+    font-family:var(--font-display);font-size:1.12rem;font-weight:500;color:var(--ink)}
+  .faq-q .fq-plus{width:26px;height:26px;flex-shrink:0;position:relative}
+  .faq-q .fq-plus::before,.faq-q .fq-plus::after{content:"";position:absolute;background:var(--green);transition:.3s var(--ease)}
+  .faq-q .fq-plus::before{top:12px;left:4px;width:18px;height:2px}
+  .faq-q .fq-plus::after{top:3px;left:12px;width:2px;height:20px}
+  .faq-item.open .fq-plus::after{transform:rotate(90deg);opacity:0}
+  .faq-a{max-height:0;overflow:hidden;transition:.4s var(--ease)}
+  .faq-a p{padding:0 0 22px;font-size:.96rem}
+
+  /* ============================ COMPARISON ============================ */
+  .compare{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff}
+  .compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr}
+  .compare-row>div{padding:18px 22px;border-bottom:1px solid var(--line-2)}
+  .compare-row .ch{font-weight:600;font-family:var(--font-display)}
+  .compare-head>div{background:var(--ink);color:var(--paper);font-family:var(--font-display);font-weight:600;border-bottom:none}
+  .compare-head .ours{background:var(--forest)}
+  .compare-row .cell-yes{color:var(--green);font-weight:600;display:flex;align-items:center;gap:8px}
+  .compare-row .cell-no{color:var(--muted);display:flex;align-items:center;gap:8px}
+  .compare-row svg{width:17px}
+
+  /* ============================ CTA BAND ============================ */
+  .cta-band{background:var(--ink);color:var(--paper);border-radius:var(--r-xl);padding:clamp(40px,5vw,64px);position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:180%;
+    background:radial-gradient(circle,rgba(140,154,102,.35),transparent 65%)}
+  .cta-band .cb-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .cta-band h2{color:#fff;max-width:560px}
+  .cta-band p{color:rgba(250,248,242,.72);margin-top:10px;max-width:520px}
+
+  /* ============================ DISCLAIMER NOTE ============================ */
+  .gov-note{display:flex;gap:13px;align-items:flex-start;background:var(--mist);border:1px solid var(--line-2);border-radius:14px;padding:16px 20px;font-size:.86rem;color:var(--ink-soft);max-width:760px}
+  .gov-note svg{width:20px;color:var(--blue);flex-shrink:0;margin-top:2px}
+
+  /* ============================ FOOTER ============================ */
+  footer.site{background:var(--ink);color:rgba(250,248,242,.7);padding:70px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .brand-text b{color:var(--paper)}
+  .foot-brand p{margin-top:18px;font-size:.9rem;max-width:300px;color:rgba(250,248,242,.6)}
+  .foot-col h5{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);margin-bottom:18px}
+  .foot-col a{display:block;font-size:.92rem;padding:6px 0;color:rgba(250,248,242,.7);transition:.2s}
+  .foot-col a:hover{color:var(--paper)}
+  .foot-disc{margin-top:48px;padding-top:28px;border-top:1px solid rgba(250,248,242,.12);font-size:.8rem;color:rgba(250,248,242,.5);line-height:1.6}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:24px;font-size:.82rem;color:rgba(250,248,242,.5)}
+
+  /* ============================ FLOATING CTA (mobile) ============================ */
+  .float-cta{position:fixed;bottom:18px;left:18px;right:18px;z-index:80;display:none;
+    background:var(--forest);color:#fff;padding:15px;border-radius:100px;text-align:center;font-weight:600;
+    box-shadow:0 10px 30px rgba(22,67,42,.4);align-items:center;justify-content:center;gap:9px}
+  .float-cta svg{width:17px}
+
+  /* ============================ RESPONSIVE ============================ */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{max-width:420px}
+    .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:1fr 1fr;gap:30px 14px}
+    .step::after{display:none}
+    .calc-body{grid-template-columns:1fr}
+    .calc-inputs{border-right:none;border-bottom:1px solid var(--line)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .prov-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    nav.links,.nav-phone{display:none}
+    .burger{display:flex}
+    .grid-3,.grid-4,.grid-2,.form-grid,.calc-inputs .ci-grid,.checklist,.res-cols{grid-template-columns:1fr}
+    .prov-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .compare-row{grid-template-columns:1.2fr .8fr .8fr}
+    .compare-row>div{padding:13px 12px;font-size:.85rem}
+    .float-cta{display:flex}
+    body{padding-bottom:80px}
+    .modal{padding:28px 22px}
+    .formwrap,.cta-band{padding:26px}
+    .hero-stats{gap:24px}
+  }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="modal-scrim" id="scrim"><div class="modal" id="modal"></div></div>
+  <a class="float-cta" id="floatCta" href="#" onclick="ctaClick();return false;">
+    Get Started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+
+<script>
+/* ============================================================
+   ZERO CARBON AGENCY  —  single-file site
+   Vanilla hash router + reusable render functions
+   ============================================================ */
+
+/* ---------- ICON LIBRARY (inline SVG, no emoji) ---------- */
+const I = {
+  arrow:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`,
+  check:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
+  checkCircle:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>`,
+  x:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>`,
+  leaf:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>`,
+  sun:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`,
+  home:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg>`,
+  bolt:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>`,
+  tools:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2 2 0 0 1-3-3l9.4-9.4Z"/><path d="m17 7 1.5-1.5a2.1 2.1 0 0 0-3-3L14 4"/></svg>`,
+  building:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 21v-4h6v4M8 7h2M8 11h2M14 7h2M14 11h2"/></svg>`,
+  money:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.6-.7-1.6-1-2.5-1-1.4 0-2.5.8-2.5 2 0 2.6 5 1.4 5 4 0 1.2-1.1 2-2.5 2-1 0-1.9-.4-2.5-1M12 6.5v1.7M12 15.8v1.7"/></svg>`,
+  heat:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3M12 2v3M16 2v3M5 9h14a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Z"/><path d="M8 20v1M12 20v1M16 20v1"/></svg>`,
+  fan:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c0-3 .5-6 3-6s3 3 0 6M12 12c3 0 6 .5 6 3s-3 3-6 0M12 12c0 3-.5 6-3 6s-3-3 0-6M12 12c-3 0-6-.5-6-3s3-3 6 0"/><circle cx="12" cy="12" r="1.3"/></svg>`,
+  drop:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5Z"/></svg>`,
+  layers:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5M3 16.5l9 5 9-5"/></svg>`,
+  window:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M12 3v18M4 12h16"/></svg>`,
+  chip:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>`,
+  shield:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z"/></svg>`,
+  clock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
+  info:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>`,
+  phone:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>`,
+  spark:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>`,
+  handshake:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 0 0 3-3"/><path d="m14 16 2.5 2.5a1 1 0 0 0 3-3l-3.9-3.9a2 2 0 0 1 0-2.8l.4-.3a2 2 0 0 1 2.8 0L21 11M3 13l4-4 4 4M3 7l4-4 5 5"/></svg>`,
+  chart:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l3-4 3 3 5-6"/></svg>`,
+  battery:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2M6 11v2M9 11v2"/></svg>`,
+  maple:`<svg viewBox="0 0 100 100"><path d="M50 6 L55 26 L67 19 L62 35 L82 32 L70 46 L90 53 L70 58 L78 76 L58 70 L54 92 L50 84 L46 92 L42 70 L22 76 L30 58 L10 53 L30 46 L18 32 L38 35 L33 19 L45 26 Z" fill="currentColor"/></svg>`,
+};
+
+/* province simplified stylized outlines */
+const PROV_SVG = {
+  ON:`<svg viewBox="0 0 100 100"><path d="M12 18 L62 14 L70 22 L88 26 L82 46 L70 50 L74 64 L60 74 L56 90 L48 78 L40 74 L34 60 L22 56 L18 38 L10 30 Z"/></svg>`,
+  AB:`<svg viewBox="0 0 100 100"><path d="M30 10 L80 14 L78 86 L26 90 L24 64 L34 50 L26 36 L34 24 Z"/></svg>`,
+  BC:`<svg viewBox="0 0 100 100"><path d="M14 22 L40 12 L52 22 L72 16 L86 30 L78 50 L88 64 L70 78 L60 70 L48 84 L40 70 L30 76 L24 58 L34 44 L20 36 Z"/></svg>`,
+  CA:`<svg viewBox="0 0 100 100"><path d="M8 38 L24 30 L36 36 L48 26 L60 34 L74 28 L90 40 L82 56 L92 66 L72 74 L58 66 L48 80 L38 66 L24 72 L18 56 L26 46 Z"/></svg>`,
+};
+
+/* ---------- LOGO ---------- */
+function logoMark(){
+  return `<svg class="brand-mark" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Zero Carbon Agency">
+    <path d="M50 4 L92 30 V40 L60 22 Z" fill="#16432A"/>
+    <path d="M60 22 L92 40 V70 L60 52 Z" fill="#8C9A66"/>
+    <path d="M8 40 L50 4 L60 22 L20 46 Z" fill="#16432A"/>
+    <path d="M8 40 L20 46 V70 L8 70 Z" fill="#15211A"/>
+    <path d="M8 70 H72 V92 H8 Z" fill="#15211A"/>
+    <path d="M20 46 L72 70 V92 L20 70 Z" fill="#1d2c23"/>
+    <g transform="translate(46,68) scale(0.20)"><path d="M50 6 L55 26 L67 19 L62 35 L82 32 L70 46 L90 53 L70 58 L78 76 L58 70 L54 92 L50 84 L46 92 L42 70 L22 76 L30 58 L10 53 L30 46 L18 32 L38 35 L33 19 L45 26 Z" fill="#FAF8F2"/></g>
+  </svg>`;
+}
+
+/* ---------- DATA ---------- */
+const ON_PROGRAMS = [
+  {n:"Home Renovation Savings Program",d:"Support toward energy-efficient home renovations — from insulation to heating system upgrades — designed to lower bills and improve comfort.",who:"Ontario homeowners",b:"May reduce upfront renovation costs"},
+  {n:"Monthly Energy Support Programs",d:"Ongoing support options that may help eligible households manage monthly energy costs more predictably.",who:"Income-qualified households",b:"May ease monthly utility burden"},
+  {n:"Additional Home Suites & Garden Units Program",d:"Guidance and support for adding a secondary suite or garden unit, including energy-efficiency considerations.",who:"Homeowners adding suites",b:"Adds usable space & potential rental income"},
+  {n:"Zero Carbon Energy Savings Program",d:"A whole-home approach to identifying upgrades that cut energy waste and lower your carbon footprint.",who:"All Ontario homeowners",b:"Targets long-term efficiency gains"},
+  {n:"The Green Funding Program",d:"Helps homeowners explore available funding pathways for qualifying green upgrades and clean-energy improvements.",who:"Owners planning green upgrades",b:"Opens potential funding options"},
+  {n:"Gas Elimination Program",d:"Support for transitioning away from gas heating toward efficient electric and heat-pump solutions.",who:"Gas-heated homes",b:"Path to lower-emission heating"},
+  {n:"Zero Carbon Initiative: Solar Panel Initiative",d:"Explore residential solar options, system sizing, and potential savings tailored to your roof and usage.",who:"Owners with suitable roofs",b:"Generate your own clean power"},
+];
+const AB_PROGRAMS = [
+  {n:"Gas Elimination Program",d:"Support for moving away from gas heating toward efficient electric and heat-pump systems suited to Alberta winters.",who:"Gas-heated Alberta homes",b:"Lower-emission, modern heating"},
+  {n:"The Green Funding Program",d:"Helps Alberta homeowners explore available funding pathways for qualifying clean-energy and efficiency upgrades.",who:"Owners planning green upgrades",b:"Opens potential funding options"},
+  {n:"Zero Carbon Solar Panel Initiative (AB)",d:"Alberta gets some of Canada's best solar potential. Explore system sizing, battery options, and estimated savings.",who:"Alberta homeowners",b:"Strong solar yield in Alberta",solar:true},
+  {n:"Zero Carbon Energy Savings Program",d:"A whole-home efficiency review to identify the upgrades that deliver the biggest reduction in energy waste.",who:"All Alberta homeowners",b:"Targets long-term efficiency gains"},
+];
+const SERVICES = [
+  {n:"HVAC Upgrades",i:"fan"},{n:"Heat Pumps",i:"heat"},{n:"Furnace Upgrades",i:"heat"},
+  {n:"Air Conditioning",i:"fan"},{n:"Water Heaters",i:"drop"},{n:"Insulation",i:"layers"},
+  {n:"Windows & Doors",i:"window"},{n:"Smart Thermostats",i:"chip"},{n:"Solar Panels",i:"sun"},
+  {n:"Energy Efficiency Upgrades",i:"bolt"},{n:"Garden / Additional Suites",i:"building"},
+];
+const FAQS = [
+  {q:"Is Zero Carbon Agency a government agency?",a:"No. Zero Carbon Agency is an independent Canadian company. We help homeowners understand and navigate available programs, upgrades, and property options. We do not guarantee approval for any government, utility, rebate, or financing program."},
+  {q:"How do I know which programs I may qualify for?",a:"Eligibility depends on your property, location, income, utility provider, and current program rules. The best first step is a free assessment — our team can review your situation and walk you through the options that may apply to you."},
+  {q:"Do you charge homeowners a fee?",a:"Our initial assessments and program reviews are free and no-obligation. If a specific upgrade or service has a cost, that is always discussed clearly and upfront before anything moves forward."},
+  {q:"What does the solar calculator actually estimate?",a:"It provides educational estimates of system size, production, savings, payback, and CO₂ offset based on the details you enter. Actual results depend on your roof, usage, utility rates, pricing, incentives, and final system design."},
+  {q:"How does the cash-offer process work?",a:"You submit your property details, our team reviews the home, and we assess potential offer options through our network of qualified buyers and private investors. If your property qualifies, you receive a no-obligation offer and choose whether to move forward."},
+  {q:"Which provinces do you serve?",a:"We currently support homeowners across Ontario and Alberta with full energy, home-improvement, solar and property services. In British Columbia we currently focus on property solutions (cash offers). We're expanding across Canada."},
+];
+
+/* ---------- STATE ---------- */
+const state = { province:null };
+
+/* ============================================================
+   SHARED CHROME
+   ============================================================ */
+function header(active){
+  const link=(id,label)=>`<a href="#" class="${active===id?'active':''}" onclick="go('${id}');return false;">${label}</a>`;
+  return `<header id="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand" onclick="go('landing');return false;">
+        ${logoMark()}
+        <span class="brand-text"><b>Zero Carbon</b><span>Agency</span></span>
+      </a>
+      <nav class="links">
+        ${link(progKey(),'Programs')}
+        ${link('home-improvement','Home Improvement')}
+        ${link('solar','Solar')}
+        ${link('sell','Sell Your Home')}
+        ${link('developers','Developers')}
+        ${link('about','About')}
+        ${link('contact','Contact')}
+      </nav>
+      <div class="nav-cta">
+        <span class="nav-phone">${I.phone}<span>1-800-ZERO-CO2</span></span>
+        <button class="btn btn-primary btn-sm" onclick="go('contact')">Get Started ${I.arrow}</button>
+        <button class="burger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      ${link(progKey(),'Programs')}${link('home-improvement','Home Improvement')}${link('solar','Solar')}
+      ${link('sell','Sell Your Home')}${link('developers','Developers')}${link('about','About')}
+      ${link('faq','FAQ')}${link('contact','Contact')}
+      <button class="btn btn-primary" onclick="go('contact')">Get Started ${I.arrow}</button>
+    </div>
+  </header>`;
+}
+function progKey(){ return state.province==='AB' ? 'ab-programs' : 'on-programs'; }
+
+function footer(){
+  const col=(items)=>items.map(([id,l])=>`<a href="#" onclick="go('${id}');return false;">${l}</a>`).join('');
+  return `<footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="brand">${logoMark()}<span class="brand-text"><b style="color:var(--paper)">Zero Carbon</b><span>Agency</span></span></div>
+          <p>Helping Canadian homeowners access energy programs, upgrade their homes, explore solar savings, and request fast property solutions.</p>
+        </div>
+        <div class="foot-col"><h5>Provinces</h5>${col([['on-hub','Ontario'],['ab-hub','Alberta'],['bc-sell','British Columbia'],['landing','Choose Province']])}</div>
+        <div class="foot-col"><h5>Services</h5>${col([[progKey(),'Programs'],['home-improvement','Home Improvement'],['solar','Solar Calculator'],['sell','Sell Your Home'],['developers','Developers']])}</div>
+        <div class="foot-col"><h5>Company</h5>${col([['about','About'],['contact','Contact'],['faq','FAQ'],['privacy','Privacy Policy'],['terms','Terms of Service']])}</div>
+      </div>
+      <p class="foot-disc"><strong style="color:var(--sage-soft)">Disclaimer.</strong> Zero Carbon Agency is not a government agency. Program availability, eligibility, savings, incentives, and offers may vary by province, property, household, utility provider, and current program rules. All estimates are for informational purposes only.</p>
+      <div class="foot-bottom"><span>© ${new Date().getFullYear()} Zero Carbon Agency. Proudly Canadian.</span><span>Ontario · Alberta · British Columbia</span></div>
+    </div>
+  </footer>`;
+}
+
+function govNote(){
+  return `<div class="gov-note">${I.info}<span>Zero Carbon Agency is not a government agency and does not guarantee approval for any government, utility, rebate, or financing program. Eligibility depends on property, location, income, utility provider, and program rules.</span></div>`;
+}
+function ctaBand(title,sub,btn,view){
+  return `<section><div class="wrap"><div class="cta-band reveal"><div class="cb-inner">
+    <div><h2>${title}</h2><p>${sub}</p></div>
+    <button class="btn btn-light" onclick="go('${view}')">${btn} ${I.arrow}</button>
+  </div></div></div></section>`;
+}
+function floatCtaTarget(){ ctaTarget = state.province==='BC' ? 'bc-sell' : 'contact'; }
+let ctaTarget='contact';
+function ctaClick(){ go(ctaTarget); }
+
+/* ============================================================
+   PROVINCE LANDING
+   ============================================================ */
+function viewLanding(){
+  document.title="Zero Carbon Agency — Find Energy Savings, Home Improvement & Property Solutions in Your Province";
+  const card=(code,name,tag)=>`<button class="prov-card reveal" onclick="pickProvince('${code}')">
+    <div class="prov-out">${PROV_SVG[code]}</div>
+    <div class="prov-name">${name}</div>
+    <div class="prov-tag">${tag}</div>
+    <div class="prov-go">Continue ${I.arrow}</div>
+  </button>`;
+  const trust=(t)=>`<div class="trust-item">${I.check}<span>${t}</span></div>`;
+  return `<div class="landing">
+    <div class="landing-bg"><div class="mesh"></div><div class="grain"></div></div>
+    <div class="landing-top"><div class="wrap">
+      <a href="#" class="brand" onclick="go('landing');return false;">${logoMark()}<span class="brand-text"><b>Zero Carbon</b><span>Agency</span></span></a>
+      <span class="landing-pill"><span class="dot"></span> Now serving ON · AB · BC</span>
+    </div></div>
+    <div class="landing-main"><div class="wrap">
+      <div class="landing-hero">
+        <span class="eyebrow reveal" style="justify-content:center">Welcome to Zero Carbon Agency</span>
+        <h1 class="reveal">Find energy savings, home improvement support, and <span class="hl">property solutions</span> in your province.</h1>
+        <p class="lead reveal">Zero Carbon Agency helps Canadian homeowners access available energy programs, upgrade their homes, explore solar savings, and request fast property solutions.</p>
+        <p class="reveal" style="font-weight:600;color:var(--forest);margin-top:18px">Select your province to begin →</p>
+      </div>
+      <div class="prov-grid">
+        ${card('ON','Ontario','Programs · Home · Solar · Sell')}
+        ${card('AB','Alberta','Programs · Solar · Sell')}
+        ${card('BC','British Columbia','Property solutions')}
+        ${card('CA','Other Province','Tell us what you need')}
+      </div>
+      <div class="landing-foot reveal" style="margin-top:36px">
+        <button onclick="go('contact')">Not sure where to start? Talk to our team</button>
+      </div>
+    </div></div>
+    <div class="trust-strip"><div class="wrap">
+      ${trust('Home Improvement Support')}${trust('Energy Savings Programs')}${trust('Solar Savings')}${trust('Cash Offer Property Solutions')}${trust('Developer Partnerships')}
+    </div></div>
+  </div>`;
+}
+
+function pickProvince(code){
+  state.province=code;
+  if(code==='BC'){ go('bc-sell'); return; }
+  if(code==='CA'){ go('other'); return; }
+  openModal(code);
+}
+
+/* ---------- "What are you looking for?" modal ---------- */
+function openModal(code){
+  const name = code==='ON'?'Ontario':'Alberta';
+  const opt=(view,ico,title,sub)=>`<button class="opt-card" onclick="closeModal();go('${view}')">
+    <div class="opt-ico">${I[ico]}</div>
+    <div class="opt-txt"><b>${title}</b><span>${sub}</span></div>
+    <div class="opt-arr">${I.arrow}</div></button>`;
+  document.getElementById('modal').innerHTML=`
+    <button class="modal-x" onclick="closeModal()">${I.x}</button>
+    <div class="modal-head"><span class="modal-chip">${name}</span></div>
+    <h3>What are you looking for?</h3>
+    <p style="color:var(--muted);font-size:.94rem">Pick a path and we'll take you straight to the right place.</p>
+    <div class="modal-opts">
+      ${opt('home-improvement','tools','Home Improvement Support','HVAC, heat pumps, insulation & more')}
+      ${opt(code==='AB'?'ab-programs':'on-programs','bolt','Energy Programs','Explore available programs in '+name)}
+      ${opt('sell','money','Sell Your Home','Request a no-obligation cash offer')}
+      ${opt('developers','building','Are You a Real Estate Developer?','Partnerships & project solutions')}
+    </div>`;
+  showScrim();
+}
+function showScrim(){const s=document.getElementById('scrim');s.classList.add('show');document.body.style.overflow='hidden';}
+function closeModal(){const s=document.getElementById('scrim');s.classList.remove('show');document.body.style.overflow='';}
+document.getElementById('scrim').addEventListener('click',e=>{if(e.target.id==='scrim')closeModal();});
+
+/* ============================================================
+   PAGE SHELL helper (header + content + footer)
+   ============================================================ */
+function shell(content){ return header(currentView)+`<main>${content}</main>`+footer(); }
+
+/* ============================================================
+   ONTARIO HUB
+   ============================================================ */
+function viewOnHub(){
+  document.title="Ontario Home Improvement & Energy Program Support | Zero Carbon Agency";
+  const cards=[
+    ['bolt','Energy Programs','Explore the full list of available Ontario energy programs.','on-programs'],
+    ['tools','Home Improvement Support','HVAC, heat pumps, insulation, windows and more.','home-improvement'],
+    ['sun','Solar Panel Initiative','See estimated solar savings for your home.','solar'],
+    ['money','Monthly Energy Support','Support options that may help manage monthly energy costs.','on-programs'],
+    ['home','Sell Your Home','Request a fast, no-obligation cash offer.','sell'],
+    ['building','Real Estate Developer Support','Partnerships, acquisitions and project energy solutions.','developers'],
+  ];
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap"><div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">Ontario Homeowners</span>
+        <h1 class="reveal">Ontario home improvement & energy program support</h1>
+        <p class="lead reveal">Explore available energy programs, home upgrade support, solar savings, and property solutions for Ontario homeowners.</p>
+        <div class="hero-ctas reveal">
+          <button class="btn btn-primary" onclick="go('on-programs')">View Ontario Programs ${I.arrow}</button>
+          <button class="btn btn-ghost" onclick="go('contact')">Request a Free Assessment</button>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="hstat"><b>7</b><span>ENERGY PROGRAMS</span></div>
+          <div class="hstat"><b>11+</b><span>UPGRADE SERVICES</span></div>
+          <div class="hstat"><b>$0</b><span>ASSESSMENT COST</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">${heroCard('Ontario snapshot','home',[['Energy programs','7 available'],['Home upgrades','Supported'],['Solar potential','Good'],['Cash offer','Available']])}
+        <div class="float-badge fb-1">${I.leaf} Lower bills</div>
+        <div class="float-badge fb-2">${I.shield} No-obligation</div>
+      </div>
+    </div></div></section>
+
+    <section class="bg-mist"><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">Choose your path</span><h2>Everything Ontario homeowners need, in one place</h2></div>
+      <div class="grid-3">${cards.map(c=>hubCard(...c)).join('')}</div>
+      <div style="margin-top:36px;display:flex;justify-content:center">${govNote()}</div>
+    </div></section>
+
+    ${ctaBand('Not sure which program fits your home?','Book a free, no-obligation assessment and our Ontario team will review your options with you.','Request a Free Assessment','contact')}
+  `);
+}
+
+/* ============================================================
+   ALBERTA HUB
+   ============================================================ */
+function viewAbHub(){
+  document.title="Alberta Energy Savings & Home Upgrade Support | Zero Carbon Agency";
+  const cards=[
+    ['bolt','Energy Programs','Explore the full list of available Alberta energy programs.','ab-programs'],
+    ['sun','Solar Savings Calculator','Estimate your Alberta solar savings with & without a battery.','solar'],
+    ['tools','Home Improvement Support','HVAC, heat pumps, insulation, windows and more.','home-improvement'],
+    ['money','Sell Your Home','Request a fast, no-obligation cash offer.','sell'],
+    ['building','Real Estate Developer Support','Partnerships, acquisitions and project energy solutions.','developers'],
+    ['bolt','Energy Savings Program','A whole-home approach to cutting energy waste.','ab-programs'],
+  ];
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap"><div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">Alberta Homeowners</span>
+        <h1 class="reveal">Alberta energy savings & home upgrade support</h1>
+        <p class="lead reveal">Explore available energy savings programs, solar options, and home improvement support for Alberta homeowners.</p>
+        <div class="hero-ctas reveal">
+          <button class="btn btn-primary" onclick="go('ab-programs')">View Alberta Programs ${I.arrow}</button>
+          <button class="btn btn-ghost" onclick="go('solar')">Calculate Solar Savings</button>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="hstat"><b>#1</b><span>SOLAR POTENTIAL IN CANADA</span></div>
+          <div class="hstat"><b>4</b><span>ENERGY PROGRAMS</span></div>
+          <div class="hstat"><b>$0</b><span>ASSESSMENT COST</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">${heroCard('Alberta solar snapshot','sun',[['Annual sun hours','High'],['System payback','~8–12 yrs'],['Battery option','Available'],['CO₂ offset','Significant']])}
+        <div class="float-badge fb-1">${I.sun} Strong sun</div>
+        <div class="float-badge fb-2">${I.battery} +Battery</div>
+      </div>
+    </div></div></section>
+
+    <section class="bg-mist"><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">Choose your path</span><h2>Built for Alberta homes and Alberta sun</h2></div>
+      <div class="grid-3">${cards.map(c=>hubCard(...c)).join('')}</div>
+      <div style="margin-top:36px;display:flex;justify-content:center">${govNote()}</div>
+    </div></section>
+
+    ${ctaBand('Want to see what solar could save you?','Use the Alberta Solar Savings Calculator, then request a free solar assessment from our team.','Calculate Solar Savings','solar')}
+  `);
+}
+
+function heroCard(title,ico,rows){
+  return `<div class="hero-card">
+    <div class="hc-top"><div class="hc-ico">${I[ico]}</div><h4>${title}</h4></div>
+    ${rows.map(r=>`<div class="hc-row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')}
+    <div class="hc-bar"><i></i></div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:12px;font-family:var(--font-mono)">Estimate · for illustration</p>
+  </div>`;
+}
+function hubCard(ico,title,desc,view){
+  return `<div class="card reveal" onclick="go('${view}')" style="cursor:pointer">
+    <div class="card-ico">${I[ico]}</div>
+    <h3>${title}</h3><p>${desc}</p>
+    <div class="card-cta">Explore ${I.arrow}</div>
+  </div>`;
+}
+
+/* ============================================================
+   ENERGY PROGRAMS (ON / AB)
+   ============================================================ */
+function programsPage(title,sub,list,prov){
+  const card=(p)=>`<div class="card reveal">
+    <div class="card-ico">${I[p.solar?'sun':'bolt']}</div>
+    <h3>${p.n}</h3><p>${p.d}</p>
+    <span class="pill-who">For: ${p.who}</span>
+    <div class="benefit">${I.check}<span><strong>Main benefit:</strong> ${p.b}</span></div>
+    <div class="benefit">${I.info}<span style="color:var(--muted)">May qualify — available support may vary. Our team can help review your options.</span></div>
+    <button class="btn btn-primary btn-sm" style="margin-top:18px" onclick="go('contact')">Check Eligibility ${I.arrow}</button>
+    ${p.solar?`<button class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="go('solar')">Open Solar Calculator</button>`:''}
+  </div>`;
+  return shell(`
+    <section class="hero" style="padding-bottom:0"><div class="hero-bg"></div><div class="wrap" style="max-width:760px">
+      <span class="eyebrow reveal">${prov} Energy Programs</span>
+      <h1 class="reveal" style="margin:18px 0">${title}</h1>
+      <p class="lead reveal">${sub}</p>
+      <div class="reveal" style="margin-top:24px">${govNote()}</div>
+    </div></section>
+    <section><div class="wrap"><div class="grid-3">${list.map(card).join('')}</div></div></section>
+    ${prov==='Ontario'?ontarioForm():''}
+    ${ctaBand('Let our team review your options','Eligibility depends on your property, location, income, utility provider, and program rules. A free assessment is the fastest way to find out what may apply.','Request a Free Assessment','contact')}
+  `);
+}
+function viewOnPrograms(){document.title="Full List of Ontario Energy Programs | Zero Carbon Agency";return programsPage("Full list of Ontario energy programs","Plain-English summaries of the programs Ontario homeowners may be able to access. We help you understand each one and figure out what may fit your home.",ON_PROGRAMS,'Ontario');}
+function viewAbPrograms(){document.title="Full List of Alberta Energy Programs | Zero Carbon Agency";return programsPage("Full list of Alberta energy programs","Clear summaries of the programs and solar options available to Alberta homeowners — plus a calculator to estimate your solar savings.",AB_PROGRAMS,'Alberta');}
+
+/* ---------- Ontario detailed lead form ---------- */
+function ontarioForm(){
+  return `<section class="bg-mist" id="on-form"><div class="wrap" style="max-width:760px">
+    <div class="sec-head center"><span class="eyebrow" style="justify-content:center">Free Assessment</span><h2>Check your Ontario options</h2><p>Share a few details and our Ontario team will review which programs and upgrades may fit your home.</p></div>
+    <div class="formwrap">
+      <div class="form-grid">
+        ${field('Full name','text','Jane Doe',true)}
+        ${field('Phone number','tel','(000) 000-0000',true)}
+        ${field('Email','email','you@email.com',true)}
+        ${field('Address','text','123 Main St')}
+        ${field('City','text','Toronto')}
+        ${select('Homeowner or tenant?',['Homeowner','Tenant'])}
+        ${select('What are you interested in?',['Energy programs','Home improvement','Solar','Sell my home','Not sure yet'])}
+        ${select('Current heating type',['Natural gas','Electric','Heat pump','Oil','Other'])}
+        ${field('Monthly utility cost estimate','text','$250')}
+      </div>
+      <div class="checkbox-row" style="margin-top:18px"><input type="checkbox" id="onc"><label for="onc">I agree to be contacted by Zero Carbon Agency about my request. I understand this is not a guarantee of program approval.</label></div>
+      <button class="btn btn-primary btn-block" style="margin-top:20px" onclick="fakeSubmit(this)">Request a Free Assessment ${I.arrow}</button>
+    </div>
+  </div></section>`;
+}
+
+/* ============================================================
+   HOME IMPROVEMENT
+   ============================================================ */
+function viewHomeImprovement(){
+  document.title="Home Improvement Support in Ontario & Alberta | Zero Carbon Agency";
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap" style="max-width:780px;text-align:center;margin:0 auto">
+      <span class="eyebrow reveal" style="justify-content:center">Ontario & Alberta</span>
+      <h1 class="reveal" style="margin:18px 0">Home improvement support made simple</h1>
+      <p class="lead reveal" style="margin:0 auto;max-width:600px">From energy-efficient upgrades to comfort improvements, Zero Carbon Agency helps homeowners explore available options and connect with the right support.</p>
+      <div class="hero-ctas reveal" style="justify-content:center;margin-top:28px">
+        <button class="btn btn-primary" onclick="go('contact')">Book a Free Home Assessment ${I.arrow}</button>
+      </div>
+    </div></section>
+    <section><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">What we help with</span><h2>Upgrades that improve comfort and cut waste</h2></div>
+      <div class="grid-4">${SERVICES.map(s=>`<div class="svc-tile reveal"><div class="st-ico">${I[s.i]}</div><b>${s.n}</b></div>`).join('')}</div>
+    </div></section>
+    <section class="bg-mist"><div class="wrap"><div class="hero-grid" style="align-items:center">
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2 style="margin:16px 0 20px">A guided process, not a sales pitch</h2>
+        <div class="checklist">
+          <div class="ck">${I.check}<div><b>Free assessment</b></div></div>
+          <div class="ck">${I.check}<div><b>Honest recommendations</b></div></div>
+          <div class="ck">${I.check}<div><b>Program & funding review</b></div></div>
+          <div class="ck">${I.check}<div><b>Vetted installers</b></div></div>
+          <div class="ck">${I.check}<div><b>Clear, upfront pricing</b></div></div>
+          <div class="ck">${I.check}<div><b>Ongoing support</b></div></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:28px" onclick="go('contact')">Book a Free Home Assessment ${I.arrow}</button>
+      </div>
+      <div class="hero-visual">${heroCard('Comfort upgrade plan','tools',[['Heat pump','Recommended'],['Insulation','Top-up'],['Thermostat','Smart'],['Est. comfort gain','High']])}</div>
+    </div></div></section>
+    ${ctaBand('Ready to make your home more comfortable?','Book a free home assessment and we\'ll map out the upgrades that make the biggest difference.','Book a Free Home Assessment','contact')}
+  `);
+}
+
+/* ============================================================
+   SOLAR CALCULATOR  (Alberta)
+   ============================================================ */
+function viewSolar(){
+  document.title="Alberta Solar Savings Calculator | Zero Carbon Agency";
+  return shell(`
+    <section class="hero" style="padding-bottom:30px"><div class="hero-bg"></div><div class="wrap" style="max-width:780px">
+      <span class="eyebrow reveal">Zero Carbon Solar Panel Initiative</span>
+      <h1 class="reveal" style="margin:18px 0">Alberta Solar Savings Calculator</h1>
+      <p class="lead reveal">See estimated solar savings with and without battery storage. Adjust the inputs and watch the numbers update — then request a free solar assessment.</p>
+    </div></section>
+    <section style="padding-top:20px"><div class="wrap">
+      <div class="calc reveal">
+        <div class="calc-head">
+          <div><h3>Alberta Solar Savings Calculator</h3><p>Estimates only — adjust inputs to model your home</p></div>
+          <span class="calc-badge">${I.sun} Live estimate</span>
+        </div>
+        <div class="calc-body">
+          <div class="calc-inputs">
+            <div class="ci-grid">
+              ${calcSelect('City / region',['Calgary','Edmonton','Red Deer','Lethbridge','Fort McMurray','Other'],'city')}
+              ${calcNum('Monthly electricity bill ($)','bill',160)}
+              ${calcNum('Monthly usage (kWh)','kwh',850)}
+              ${calcSelect('Roof type',['Asphalt shingle','Metal','Flat / membrane','Tile'],'rooftype')}
+              ${calcSelect('Roof direction',['South','Southeast / Southwest','East / West','North','Flat'],'dir')}
+              ${calcSelect('Roof shading',['None','Light','Moderate','Heavy'],'shade')}
+              ${calcSelect('Home size',['Small (<1500 sqft)','Medium (1500–2500)','Large (>2500)'],'size')}
+              ${calcNum('Electricity rate ($/kWh)','rate',0.17,0.01)}
+              ${calcNum('Annual rate increase (%)','esc',3,0.5)}
+              ${calcNum('Desired system size (kW)','sys',7,0.5)}
+              ${calcNum('Battery size (kWh)','batt',13.5,0.5)}
+              ${calcNum('Install cost ($/W)','cpw',2.6,0.1)}
+              ${calcNum('Rebate / incentive ($)','rebate',0,100)}
+              ${calcNum('Panel lifespan (yrs)','plife',25,1)}
+              ${calcNum('Battery lifespan (yrs)','blife',12,1)}
+            </div>
+            <div class="field full" style="margin-top:16px">
+              <label>Financing option</label>
+              <div class="toggle-row" id="fin">
+                <button class="on" onclick="setFin(this,'cash')">Cash</button>
+                <button onclick="setFin(this,'finance')">Finance</button>
+                <button onclick="setFin(this,'unsure')">Unsure</button>
+              </div>
+            </div>
+          </div>
+          <div class="calc-results" id="calcResults"></div>
+        </div>
+        <div class="calc-foot">
+          <p>Like what you see? Get a precise quote from a real assessment of your roof and usage.</p>
+          <button class="btn btn-light" onclick="go('contact')">Request a Solar Assessment ${I.arrow}</button>
+        </div>
+      </div>
+    </div></section>
+    ${ctaBand('Solar is strongest in Alberta','Alberta gets some of the best solar resource in Canada. Find out what your roof could produce.','Request a Solar Assessment','contact')}
+  `);
+}
+function calcNum(label,id,val,step){return `<div class="field"><label>${label}</label><input type="number" id="c_${id}" value="${val}" step="${step||1}" oninput="runCalc()"></div>`;}
+function calcSelect(label,opts,id){return `<div class="field"><label>${label}</label><select id="c_${id}" onchange="runCalc()">${opts.map(o=>`<option>${o}</option>`).join('')}</select></div>`;}
+let finOpt='cash';
+function setFin(btn,v){finOpt=v;document.querySelectorAll('#fin button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');runCalc();}
+
+function runCalc(){
+  const g=id=>document.getElementById('c_'+id);
+  if(!g('bill'))return;
+  const bill=+g('bill').value, rate=+g('rate').value||0.17, esc=(+g('esc').value||0)/100,
+        sys=+g('sys').value||6, batt=+g('batt').value||0, cpw=+g('cpw').value||2.6,
+        rebate=+g('rebate').value||0, plife=+g('plife').value||25, blife=+g('blife').value||12;
+  // Alberta specific yield ~ 1200 kWh/kWp, adjusted
+  const dirF={'South':1,'Southeast / Southwest':0.95,'East / West':0.85,'North':0.62,'Flat':0.9}[g('dir').value]||1;
+  const shF={'None':1,'Light':0.93,'Moderate':0.82,'Heavy':0.66}[g('shade').value]||1;
+  const baseYield=1200*dirF*shF;
+  const production=Math.round(sys*baseYield);            // kWh/yr
+  const usage=( +g('kwh').value||850)*12;                // kWh/yr
+  // self-consumption: no battery ~45%, with battery ~85% (capped by usage)
+  const scNo=Math.min(production*0.45,usage), scYes=Math.min(production*0.85,usage);
+  const exportRate=Math.max(rate*0.5,0.06);
+  const exNo=Math.max(production-scNo,0), exYes=Math.max(production-scYes,0);
+  const annNo=Math.round(scNo*rate + exNo*exportRate);
+  const annYes=Math.round(scYes*rate + exYes*exportRate);
+  const costSolar=Math.round(sys*1000*cpw);
+  const costBatt=Math.round(batt*1050);
+  const totalNo=costSolar, totalYes=costSolar+costBatt;
+  const netNo=Math.max(totalNo-rebate,0), netYes=Math.max(totalYes-rebate,0);
+  const indNo=Math.round(scNo/usage*100), indYes=Math.round(scYes/usage*100);
+  const co2=(production*0.45/1000); // tonnes/yr (AB grid factor)
+  const payNo=(netNo/annNo), payYes=(netYes/annYes);
+  // multi-year with escalation
+  const cum=(ann,yrs,replace)=>{let t=0;for(let y=0;y<yrs;y++)t+=ann*Math.pow(1+esc,y);if(replace&&yrs>blife)t-=costBatt*0.7;return Math.round(t);};
+  const f=n=>'$'+Math.round(n).toLocaleString();
+  const col=(battery)=>{
+    const ann=battery?annYes:annNo, net=battery?netYes:netNo, total=battery?totalYes:totalNo,
+          ind=battery?indYes:indNo, pay=battery?payYes:payNo,
+          s10=cum(ann,10,battery), s20=cum(ann,20,battery);
+    return `<div class="res-col ${battery?'battery':''}">
+      <h4>${battery?'Solar + Battery':'Solar Only'}</h4>
+      <div class="rc-sub">${battery?'Max independence':'Lowest upfront cost'}</div>
+      ${resRow('System size',sys.toFixed(1)+' kW')}
+      ${resRow('Annual production',production.toLocaleString()+' kWh')}
+      ${resRow('Annual savings',f(ann))}
+      ${resRow('Monthly savings',f(ann/12))}
+      ${resRow('10-year savings',f(s10))}
+      ${resRow('20-year savings',f(s20))}
+      ${resRow('Payback period',pay.toFixed(1)+' yrs')}
+      ${resRow('Energy independence',ind+'%')}
+      ${resRow('CO₂ offset / yr',co2.toFixed(1)+' t')}
+      ${resRow('Total project cost',f(total))}
+      ${resRow('Net after incentives',f(net))}
+    </div>`;
+  };
+  document.getElementById('calcResults').innerHTML=`
+    <div class="res-hero">
+      <div><div class="rh-lbl">Est. 20-year savings (with battery)</div><div class="rh-big">${f(cum(annYes,20,true))}</div></div>
+      <div style="text-align:right"><div class="rh-lbl">CO₂ offset / year</div><div class="rh-big">${co2.toFixed(1)}t</div></div>
+    </div>
+    <div class="res-cols">${col(false)}${col(true)}</div>
+    <div class="calc-disclaimer">${I.info} These numbers are estimates only. Actual savings depend on your home, usage, roof conditions, utility rates, installation pricing, available incentives, and final system design.</div>`;
+}
+function resRow(l,v){return `<div class="res-row"><span class="rl">${l}</span><span class="rv">${v}</span></div>`;}
+
+/* ============================================================
+   SELL YOUR HOME / CASH OFFER
+   ============================================================ */
+function sellPage(bc){
+  document.title = bc ? "Sell Your Home Fast in British Columbia | Zero Carbon Agency"
+                      : "Sell Your Home Fast With a Cash Offer | Zero Carbon Agency";
+  const title = bc ? "Sell your home in British Columbia" : "Sell your home fast with a cash offer";
+  const sub = bc ? "Request a fast, no-obligation property review and see if your home qualifies for a cash offer."
+                 : "Skip the stress of listing, repairs, and endless showings. Submit your property details and our team will review your home for a potential no-obligation cash offer.";
+  const benefits=[
+    'No listing required','No repairs required','No open houses','Flexible closing timeline',
+    'Sell as-is','Simple review process','No-obligation offer','Helpful for many situations'
+  ];
+  const steps=[
+    ['Submit your property details','Tell us about the home — takes a few minutes.'],
+    ['Our team reviews the home','We look at the details, location and condition.'],
+    ['We assess potential offer options','We work with qualified buyers and private investors.'],
+    ['You receive a no-obligation offer','If the property qualifies, we present your options.'],
+    ['You choose whether to move forward','No pressure, no obligation — the decision is yours.'],
+  ];
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap"><div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">${bc?'British Columbia':'Property Solutions'}</span>
+        <h1 class="reveal" style="margin:18px 0">${title}</h1>
+        <p class="lead reveal">${sub}</p>
+        <div class="hero-ctas reveal"><button class="btn btn-primary" onclick="scrollToForm()">${bc?'Request My Cash Offer':'Request My Cash Offer'} ${I.arrow}</button></div>
+        <p class="reveal" style="font-size:.85rem;color:var(--muted);margin-top:18px;max-width:480px">Offer availability depends on property details, location, and buyer demand. Our property solutions network may be able to present a fast cash offer.</p>
+      </div>
+      <div class="hero-visual reveal">${heroCard('What you skip','home',[['Listing','Not required'],['Repairs','Not required'],['Showings','None'],['Closing','Flexible']])}
+        <div class="float-badge fb-1">${I.clock} Fast review</div>
+        <div class="float-badge fb-2">${I.shield} No obligation</div>
+      </div>
+    </div></div></section>
+
+    <section class="bg-mist"><div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Why homeowners choose this route</span><h2>Sell on your terms</h2></div>
+      <div class="checklist">${benefits.map(b=>`<div class="ck">${I.check}<div><b>${b}</b></div></div>`).join('')}</div>
+      <p style="margin-top:22px;font-size:.92rem;max-width:680px">A cash offer route can be helpful for inherited homes, tired landlords, vacant properties, urgent sales, divorce situations, downsizing, relocation, and properties needing repairs.</p>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">How it works</span><h2>Five simple steps</h2></div>
+      <div class="steps">${steps.map((s,i)=>`<div class="step reveal"><div class="num">${i+1}</div><h4>${s[0]}</h4><p>${s[1]}</p></div>`).join('')}</div>
+    </div></section>
+
+    <section class="bg-mist"><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">No listing vs. listing</span><h2>How a cash-offer route compares</h2></div>
+      <div class="compare reveal">
+        <div class="compare-row compare-head"><div>&nbsp;</div><div class="ours">Cash-Offer Route</div><div>Traditional Listing</div></div>
+        ${compareRow('Repairs before selling','No','Often required')}
+        ${compareRow('Open houses & showings','None','Multiple')}
+        ${compareRow('Closing timeline','Flexible','Variable')}
+        ${compareRow('Realtor commissions','Typically none','Yes')}
+        ${compareRow('Certainty of process','Simple review','Market-dependent')}
+      </div>
+    </div></section>
+
+    ${cashForm()}
+  `);
+}
+function compareRow(label,ours,trad){
+  return `<div class="compare-row"><div class="ch">${label}</div>
+    <div class="cell-yes">${I.check}${ours}</div>
+    <div class="cell-no">${trad==='No'||trad==='None'?I.check:I.x}${trad}</div></div>`;
+}
+function viewSell(){return sellPage(false);}
+function viewBcSell(){return sellPage(true);}
+function scrollToForm(){const f=document.getElementById('cashForm');if(f)f.scrollIntoView({behavior:'smooth'});}
+
+function cashForm(){
+  return `<section id="cashForm"><div class="wrap" style="max-width:780px">
+    <div class="sec-head center"><span class="eyebrow" style="justify-content:center">Property Assessment</span><h2>Request my cash offer</h2><p>A few details about your property — it takes about 3 minutes.</p></div>
+    <div class="formwrap">
+      <div class="progress"><i id="cashBar" style="width:33%"></i></div>
+      <div class="progress-lbl"><span id="cashStep">Step 1 of 3 · Your details</span><span id="cashPct">33%</span></div>
+
+      <div class="form-step active" data-step="1">
+        <h4>Your details</h4><p class="fs-sub">So we know who to follow up with.</p>
+        <div class="form-grid">
+          ${field('Full name','text','Jane Doe',true)}
+          ${field('Phone number','tel','(000) 000-0000',true)}
+          ${field('Email','email','you@email.com',true)}
+          ${select('Best time to contact',['Morning','Afternoon','Evening','Anytime'])}
+        </div>
+      </div>
+
+      <div class="form-step" data-step="2">
+        <h4>The property</h4><p class="fs-sub">Tell us about the home.</p>
+        <div class="form-grid">
+          ${field('Property address','text','123 Main St','full')}
+          ${field('City','text','Calgary')}
+          ${select('Province',['Ontario','Alberta','British Columbia','Other'])}
+          ${field('Postal code','text','T2P 1A1')}
+          ${select('Property type',['Detached','Semi-detached','Townhouse','Condo','Duplex','Vacant land','Other'])}
+          ${field('Bedrooms','number','3')}
+          ${field('Bathrooms','number','2')}
+          ${field('Approx. square footage','number','1800')}
+          ${field('Lot size (if known)','text','5000 sqft')}
+        </div>
+      </div>
+
+      <div class="form-step" data-step="3">
+        <h4>Condition & situation</h4><p class="fs-sub">The more we know, the better we can help.</p>
+        <div class="form-grid">
+          ${select('Is the property occupied?',['Owner-occupied','Tenant-occupied','Vacant'])}
+          ${select('Are you the owner?',['Yes','Part owner','No'])}
+          ${select('Is there a mortgage?',['Yes','No','Prefer not to say'])}
+          ${field('Approx. mortgage balance','text','Optional')}
+          ${select('Desired selling timeline',['ASAP','Within 30 days','1–3 months','3–6 months','Just exploring'])}
+          ${select('Property condition',['Excellent','Good','Fair','Needs work','Major repairs'])}
+          ${field('Recent renovations?','text','Optional','full')}
+          ${field('Known issues?','text','Optional','full')}
+          ${select('Reason for selling',['Relocation','Downsizing','Inherited property','Financial','Divorce','Tired landlord','Other'])}
+          ${field('Asking price expectation','text','Optional')}
+        </div>
+        <div class="field full" style="margin-top:16px"><label>Upload photos (optional)</label>
+          <div class="upload-zone" onclick="this.querySelector('input').click()">Drag photos here or click to upload<input type="file" multiple hidden></div></div>
+        <div class="checkbox-row" style="margin-top:18px"><input type="checkbox" id="cashConsent">
+          <label for="cashConsent">I agree to be contacted by Zero Carbon Agency by phone, email, or text about my request. I understand this is not a guaranteed offer and any offer is subject to review.</label></div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-ghost" id="cashBack" style="visibility:hidden" onclick="cashNav(-1)">Back</button>
+        <button class="btn btn-primary" id="cashNext" onclick="cashNav(1)">Continue ${I.arrow}</button>
+      </div>
+
+      <div class="form-success" id="cashSuccess">
+        <div class="fs-ico">${I.checkCircle}</div>
+        <h3>Request received</h3>
+        <p style="max-width:440px;margin:8px auto 0">Thanks — our team will review your property details and follow up. Remember: this is not a guaranteed offer and any offer is subject to review.</p>
+      </div>
+    </div>
+  </div></section>`;
+}
+let cashCur=1;
+function cashNav(dir){
+  const steps=document.querySelectorAll('#cashForm .form-step');
+  if(dir>0 && cashCur===3){ // submit
+    if(!document.getElementById('cashConsent').checked){alert('Please confirm the consent checkbox to submit.');return;}
+    document.querySelector('#cashForm .form-nav').style.display='none';
+    steps.forEach(s=>s.classList.remove('active'));
+    document.getElementById('cashSuccess').classList.add('show');
+    document.getElementById('cashBar').style.width='100%';document.getElementById('cashPct').textContent='100%';
+    document.getElementById('cashStep').textContent='Complete';
+    return;
+  }
+  cashCur=Math.min(3,Math.max(1,cashCur+dir));
+  steps.forEach(s=>s.classList.toggle('active',+s.dataset.step===cashCur));
+  const pct=[33,66,100][cashCur-1];
+  document.getElementById('cashBar').style.width=pct+'%';
+  document.getElementById('cashPct').textContent=pct+'%';
+  const labels=['Your details','The property','Condition & situation'];
+  document.getElementById('cashStep').textContent=`Step ${cashCur} of 3 · ${labels[cashCur-1]}`;
+  document.getElementById('cashBack').style.visibility=cashCur===1?'hidden':'visible';
+  document.getElementById('cashNext').innerHTML=cashCur===3?`Request My Cash Offer ${I.arrow}`:`Continue ${I.arrow}`;
+}
+
+/* ============================================================
+   DEVELOPERS
+   ============================================================ */
+function viewDevelopers(){
+  document.title="Real Estate Developer Partnerships | Zero Carbon Agency";
+  const sections=[
+    ['handshake','Developer Partnerships','Long-term partnerships with builders and property professionals.'],
+    ['bolt','Energy Upgrade Support','Energy solutions built into your projects from the start.'],
+    ['sun','Solar & Efficiency Planning','System planning and efficiency strategy at the design stage.'],
+    ['chart','Lead Generation Partnerships','Connect your projects with motivated homeowners.'],
+    ['home','Property Acquisition','Bring us qualified property opportunities.'],
+    ['shield','Homeowner Program Education','We help your buyers understand available programs.'],
+  ];
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap"><div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">For Developers & Builders</span>
+        <h1 class="reveal" style="margin:18px 0">Partner with Zero Carbon Agency</h1>
+        <p class="lead reveal">We work with real estate developers, builders, and property professionals looking to connect projects with energy solutions, homeowner programs, and qualified property opportunities.</p>
+        <div class="hero-ctas reveal"><button class="btn btn-primary" onclick="scrollToDevForm()">Speak With Our Team ${I.arrow}</button></div>
+      </div>
+      <div class="hero-visual reveal">${heroCard('Partnership snapshot','building',[['Energy planning','Included'],['Solar strategy','Available'],['Lead gen','Available'],['Acquisitions','Open']])}</div>
+    </div></div></section>
+    <section><div class="wrap">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">How we work together</span><h2>Energy and property solutions for projects of any size</h2></div>
+      <div class="grid-3">${sections.map(s=>`<div class="card reveal"><div class="card-ico">${I[s[0]]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}</div>
+    </div></section>
+    <section class="bg-mist" id="devForm"><div class="wrap" style="max-width:760px">
+      <div class="sec-head center"><span class="eyebrow" style="justify-content:center">Get in touch</span><h2>Tell us about your project</h2></div>
+      <div class="formwrap"><div class="form-grid">
+        ${field('Name','text','Jane Doe',true)}
+        ${field('Company','text','Acme Developments')}
+        ${field('Phone','tel','(000) 000-0000',true)}
+        ${field('Email','email','you@email.com',true)}
+        ${select('Province',['Ontario','Alberta','British Columbia','Other'])}
+        ${select('Type of developer / business',['Residential builder','Commercial developer','Investor','Property manager','Realtor','Other'])}
+        ${field('Project location','text','City / region')}
+        ${field('Number of units / properties','number','25')}
+        ${select('What are you looking for?',['Energy upgrade support','Solar planning','Lead generation','Property acquisition','Homeowner program education','Partnership'])}
+        ${textarea('Message','Tell us about your project...','full')}
+      </div>
+        <button class="btn btn-primary btn-block" style="margin-top:18px" onclick="fakeSubmit(this)">Speak With Our Team ${I.arrow}</button>
+      </div>
+    </div></section>
+  `);
+}
+function scrollToDevForm(){document.getElementById('devForm').scrollIntoView({behavior:'smooth'});}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+function viewAbout(){
+  document.title="About Zero Carbon Agency | Canadian Energy & Property Solutions";
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap" style="max-width:820px;text-align:center;margin:0 auto">
+      <span class="eyebrow reveal" style="justify-content:center">About Us</span>
+      <h1 class="reveal" style="margin:20px 0">Helping Canadian homes <span class="serif-accent" style="color:var(--forest)">improve, upgrade, and transition</span> — with confidence.</h1>
+      <p class="lead reveal" style="margin:0 auto;max-width:640px">Zero Carbon Agency exists to simplify the process of improving, upgrading, and transitioning Canadian homes. Whether a homeowner is looking for energy savings, solar support, home improvement guidance, or a flexible property solution, our role is to help them understand their options and take the next step with confidence.</p>
+    </div></section>
+    <section class="bg-mist"><div class="wrap">
+      <div class="grid-3">
+        ${valueCard('leaf','Helpful, not pushy','We lead with honest guidance and free assessments — never pressure.')}
+        ${valueCard('shield','Trusted & transparent','Clear wording, upfront pricing, and no false promises about approvals.')}
+        ${valueCard('maple','Proudly Canadian','Built for Canadian homeowners, climates, programs, and communities.')}
+      </div>
+    </div></section>
+    <section><div class="wrap"><div class="hero-grid" style="align-items:center">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2 style="margin:16px 0 18px">One agency, four ways we help</h2>
+        <div class="checklist">
+          <div class="ck">${I.bolt}<div><b>Energy programs</b><span style="color:var(--muted);font-size:.85rem">Understand what may apply to your home.</span></div></div>
+          <div class="ck">${I.tools}<div><b>Home improvement</b><span style="color:var(--muted);font-size:.85rem">Comfort and efficiency upgrades.</span></div></div>
+          <div class="ck">${I.sun}<div><b>Solar savings</b><span style="color:var(--muted);font-size:.85rem">Estimate and plan a solar system.</span></div></div>
+          <div class="ck">${I.money}<div><b>Property solutions</b><span style="color:var(--muted);font-size:.85rem">A flexible cash-offer route to selling.</span></div></div>
+        </div>
+      </div>
+      <div class="hero-visual">${heroCard('Our promise','handshake',[['Free assessments','Always'],['Upfront pricing','Always'],['No obligation','Always'],['Canadian','Always']])}</div>
+    </div></div></section>
+    ${ctaBand('Have a question? Talk to a real person.','Our Canadian team is here to help you understand your options — with no pressure and no obligation.','Speak With Our Team','contact')}
+  `);
+}
+function valueCard(ico,t,d){return `<div class="card reveal" style="text-align:left"><div class="card-ico">${I[ico]}</div><h3>${t}</h3><p>${d}</p></div>`;}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+function viewContact(){
+  document.title="Contact Zero Carbon Agency | Free Assessment";
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap"><div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">Free Assessment</span>
+        <h1 class="reveal" style="margin:18px 0">Let's find your next step</h1>
+        <p class="lead reveal">Tell us a little about what you're looking for and our team will follow up. Assessments are free and no-obligation.</p>
+        <div class="reveal" style="margin-top:28px;display:flex;flex-direction:column;gap:14px">
+          <div class="trust-item">${I.phone}<b>1-800-ZERO-CO2</b></div>
+          <div class="trust-item">${I.clock}<span>Mon–Fri, 8am–8pm · Sat 9am–5pm</span></div>
+          <div class="trust-item">${I.shield}<span>No-obligation · Proudly Canadian</span></div>
+        </div>
+      </div>
+      <div class="formwrap reveal"><div class="form-grid">
+        ${field('Full name','text','Jane Doe',true)}
+        ${field('Phone number','tel','(000) 000-0000',true)}
+        ${field('Email','email','you@email.com',true)}
+        ${select('Province',['Ontario','Alberta','British Columbia','Other'])}
+        ${field('City','text','Toronto')}
+        ${select('What are you interested in?',['Energy programs','Home improvement','Solar','Sell my home','Developer partnership','Not sure yet'])}
+        ${textarea('Message (optional)','How can we help?','full')}
+      </div>
+        <div class="checkbox-row" style="margin-top:16px"><input type="checkbox" id="ctc"><label for="ctc">I agree to be contacted by Zero Carbon Agency about my request.</label></div>
+        <button class="btn btn-primary btn-block" style="margin-top:18px" onclick="fakeSubmit(this)">Request a Free Assessment ${I.arrow}</button>
+      </div>
+    </div></div></section>
+  `);
+}
+
+/* ============================================================
+   OTHER PROVINCE
+   ============================================================ */
+function viewOther(){
+  document.title="Expanding Across Canada | Zero Carbon Agency";
+  return shell(`
+    <section class="hero"><div class="hero-bg"></div><div class="wrap" style="max-width:720px;margin:0 auto;text-align:center">
+      <div class="prov-out reveal" style="width:70px;margin:0 auto 6px;color:var(--forest)">${PROV_SVG.CA}</div>
+      <span class="eyebrow reveal" style="justify-content:center">Other Province</span>
+      <h1 class="reveal" style="margin:16px 0">We're expanding across Canada</h1>
+      <p class="lead reveal">Tell us what you're looking for and our team will follow up if services are available in your area.</p>
+    </div></section>
+    <section style="padding-top:0"><div class="wrap" style="max-width:680px">
+      <div class="formwrap reveal"><div class="form-grid">
+        ${field('Full name','text','Jane Doe',true)}
+        ${field('Phone number','tel','(000) 000-0000',true)}
+        ${field('Email','email','you@email.com',true)}
+        ${field('Province','text','e.g. Manitoba')}
+        ${field('City','text','Winnipeg')}
+        ${select('What are you interested in?',['Energy programs','Home improvement','Solar','Sell my home','Developer partnership','Not sure yet'])}
+      </div>
+        <button class="btn btn-primary btn-block" style="margin-top:18px" onclick="fakeSubmit(this)">Submit ${I.arrow}</button>
+      </div>
+    </div></section>
+  `);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+function viewFaq(){
+  document.title="FAQ | Zero Carbon Agency";
+  return shell(`
+    <section class="hero" style="padding-bottom:20px"><div class="hero-bg"></div><div class="wrap" style="max-width:760px;text-align:center;margin:0 auto">
+      <span class="eyebrow reveal" style="justify-content:center">Questions & Answers</span>
+      <h1 class="reveal" style="margin:18px 0">Frequently asked questions</h1>
+    </div></section>
+    <section style="padding-top:20px"><div class="wrap" style="max-width:820px">
+      ${FAQS.map((f,i)=>`<div class="faq-item reveal" onclick="toggleFaq(this)"><button class="faq-q">${f.q}<span class="fq-plus"></span></button><div class="faq-a"><p>${f.a}</p></div></div>`).join('')}
+      <div style="margin-top:36px">${govNote()}</div>
+    </div></section>
+    ${ctaBand('Still have questions?','Our team is happy to walk you through anything — with no pressure and no obligation.','Speak With Our Team','contact')}
+  `);
+}
+function toggleFaq(el){const open=el.classList.contains('open');document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});if(!open){el.classList.add('open');const a=el.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}}
+
+/* ============================================================
+   LEGAL
+   ============================================================ */
+function legalPage(title,body){
+  document.title=title+" | Zero Carbon Agency";
+  return shell(`<section class="hero" style="padding-bottom:20px"><div class="hero-bg"></div><div class="wrap" style="max-width:760px">
+      <span class="eyebrow reveal">Legal</span><h1 class="reveal" style="margin:16px 0">${title}</h1></div></section>
+    <section style="padding-top:20px"><div class="wrap" style="max-width:760px">${body}${govNote()}</div></section>`);
+}
+function viewPrivacy(){return legalPage("Privacy Policy",`
+  <p style="margin-bottom:16px">Zero Carbon Agency respects your privacy. This summary explains, in plain language, how we handle the information you share with us.</p>
+  <h3 style="margin:22px 0 8px">Information we collect</h3><p style="margin-bottom:16px">We collect details you submit through our forms — such as your name, contact information, property details, and what you're interested in — so we can respond to your request.</p>
+  <h3 style="margin:22px 0 8px">How we use it</h3><p style="margin-bottom:16px">We use your information to review your request, contact you, and connect you with relevant programs, services, or qualified buyers and private investors where applicable.</p>
+  <h3 style="margin:22px 0 8px">Your choices</h3><p style="margin-bottom:24px">You can ask us to update or remove your information at any time by contacting our team. <em>This is placeholder copy — replace with your reviewed legal policy before launch.</em></p>`);}
+function viewTerms(){return legalPage("Terms of Service",`
+  <p style="margin-bottom:16px">By using this website you agree to these terms. The content here is provided for general information only and does not constitute a guarantee of any program, approval, offer, or outcome.</p>
+  <h3 style="margin:22px 0 8px">No guarantees</h3><p style="margin-bottom:16px">Program availability, eligibility, savings, incentives, and any property offers may vary and are always subject to review. Estimates and calculators are illustrative only.</p>
+  <h3 style="margin:22px 0 8px">Property solutions</h3><p style="margin-bottom:24px">Any cash offer is subject to property review and buyer demand, and is not guaranteed. <em>This is placeholder copy — replace with your reviewed legal terms before launch.</em></p>`);}
+
+/* ============================================================
+   SHARED FORM FIELD HELPERS
+   ============================================================ */
+function field(label,type,ph,full){const cls=(full===true||full==='full')?'field full':'field';const req=full===true?' *':'';return `<div class="${cls}"><label>${label}${req}</label><input type="${type}" placeholder="${ph}"></div>`;}
+function select(label,opts){return `<div class="field"><label>${label}</label><select><option value="" disabled selected>Select…</option>${opts.map(o=>`<option>${o}</option>`).join('')}</select></div>`;}
+function textarea(label,ph,full){return `<div class="field ${full==='full'?'full':''}"><label>${label}</label><textarea rows="3" placeholder="${ph}"></textarea></div>`;}
+function fakeSubmit(btn){btn.innerHTML='Request received ✓';btn.style.background='var(--green)';btn.disabled=true;setTimeout(()=>{btn.innerHTML='Thank you — we\'ll be in touch';},10);}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+const ROUTES={
+  'landing':viewLanding,'on-hub':viewOnHub,'ab-hub':viewAbHub,
+  'on-programs':viewOnPrograms,'ab-programs':viewAbPrograms,
+  'home-improvement':viewHomeImprovement,'solar':viewSolar,
+  'sell':viewSell,'bc-sell':viewBcSell,'developers':viewDevelopers,
+  'about':viewAbout,'contact':viewContact,'other':viewOther,
+  'faq':viewFaq,'privacy':viewPrivacy,'terms':viewTerms,
+};
+let currentView='landing';
+function go(view){
+  if(!ROUTES[view])view='landing';
+  currentView=view;
+  // infer province for header consistency
+  if(view==='on-hub'||view==='on-programs')state.province=state.province||'ON';
+  if(view==='ab-hub'||view==='ab-programs')state.province='AB';
+  if(view==='bc-sell')state.province='BC';
+  cashCur=1;
+  document.getElementById('mobileMenu')&&(document.getElementById('mobileMenu').style.display='none');
+  document.getElementById('app').innerHTML=ROUTES[view]();
+  window.scrollTo(0,0);
+  location.hash=view;
+  floatCtaTarget();
+  initScroll();
+  observeReveals();
+  if(view==='solar')runCalc();
+}
+function toggleMobile(){const m=document.getElementById('mobileMenu');m.style.display=m.style.display==='flex'?'none':'flex';}
+
+/* sticky header shadow */
+function initScroll(){
+  const nav=document.getElementById('nav');
+  if(!nav)return;
+  const handler=()=>{nav.classList.toggle('scrolled',window.scrollY>20);};
+  window.removeEventListener('scroll',window.__navH||(()=>{}));
+  window.__navH=handler;window.addEventListener('scroll',handler);handler();
+}
+/* reveal on scroll */
+let io;
+function observeReveals(){
+  if(io)io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=Math.min(i*0.05,0.4)+'s';io.observe(el);});
+}
+
+/* boot */
+const start=(location.hash||'#landing').slice(1);
+go(ROUTES[start]?start:'landing');
+</script>
+</body>
+</html>
